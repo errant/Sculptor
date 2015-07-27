@@ -38,7 +38,7 @@ class Knife {
                 $post->name = $value['value'];
             } 
             if($value['name'] == '{}category') {
-                if($value['domain'] == 'category') {
+                if($value['attributes']['domain'] == 'category') {
                     $post->categories[] = $value['value'];
                 } else {
                     $post->tags[] = $value['value'];
