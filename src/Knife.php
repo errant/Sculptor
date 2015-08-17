@@ -29,7 +29,8 @@ class Knife {
                 $post->title = $value['value'];
             }  
             if($value['name'] == '{http://purl.org/rss/1.0/modules/content/}encoded') {
-                $post->content = $value['value'];
+                $post_replace_images = preg_replace("/\[caption align=\"align([^\"]+)\" width=\"([^\"]+)\"\]([^[]+)\[\/caption\]/U", '<div style="float: \1; width: \2px;">\3</div>', $value['value']);
+                $post->content = $post_replace_images;
             }  
             if($value['name'] == '{http://wordpress.org/export/1.2/}post_date') {
                 $post->timestamp = $value['value'];
@@ -37,6 +38,7 @@ class Knife {
             if($value['name'] == '{http://wordpress.org/export/1.2/}post_name') {
                 $post->name = $value['value'];
             } 
+            //var_dump($value);
             if($value['name'] == '{}category') {
                 if($value['attributes']['domain'] == 'category') {
                     $post->categories[] = $value['value'];
