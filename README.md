@@ -1,4 +1,5 @@
-# sculpin-wordpress-convertor
+# Sculptor
+
 A Wordpress to Scuplin Blog Post migrator
 
 ## Install
